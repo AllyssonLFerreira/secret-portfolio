@@ -1,0 +1,21 @@
+<ng-container *ngIf="path; else withoutRouter">
+  <div class="center-center" (click)="navigateBy(path)">
+    <a class="btn-glitch-fill" >
+      <span class="text">// {{text}}</span>
+      <span class="text-decoration">_</span>
+      <span class="decoration">&rArr;</span>
+    </a>
+  </div>
+</ng-container>
+
+<ng-template #withoutRouter>
+  <div class="center-center" routerLink="{router}">
+    <a class="btn-glitch-fill" >
+      <span class="text">// {{text}}</span>
+      <span class="text-decoration">_</span>
+      <span class="decoration">&rArr;</span>
+    </a>
+  </div>
+</ng-template>
+
+

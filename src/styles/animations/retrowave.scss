@@ -1,0 +1,51 @@
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes intro-perspective {
+    0% {
+      perspective-origin: 50% 100%;
+    }
+  
+    100% {
+      perspective-origin: 50% 50%;
+    }
+  }
+  
+  @keyframes grid-y {
+    0% {
+      transform: translateY(-20%);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes hover {
+    0% {
+      transform: translate(0, 0);
+    }
+  
+    25% {
+      transform: translate(0, 1%);
+    }
+  
+    50% {
+      transform: translate(0, 0);
+    }
+  
+    75% {
+      transform: translate(0, 1.6%);
+    }
+  
+    100% {
+      transform: translate(0, 0);
+    }
+  }

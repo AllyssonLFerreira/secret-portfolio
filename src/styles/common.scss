@@ -1,0 +1,60 @@
+@use "node_modules/@angular/material/index" as mat;
+@use 'color-palette';
+@use "sass:map";
+
+//define-assets-fonts
+  @font-face {
+    font-family: ShareTech;
+    src: url('../assets/fonts/ShareTechMono-Regular.ttf') format("opentype");
+  }
+
+
+
+//create-custom-typography-for-project
+  $custom-typography: mat.define-typography-config(
+  $headline-6: mat.define-typography-level(82px, 92px, 400, 'ShareTech', $letter-spacing: -0em),
+  $headline-5: mat.define-typography-level(56px, 60px, 400, 'ShareTech', $letter-spacing: -0em),
+  $headline-4: mat.define-typography-level(45px, 52px, 400, 'ShareTech' ,$letter-spacing: -0em),
+  $headline-3: mat.define-typography-level(34px, 40px, 400, 'ShareTech'),
+  $headline-2: mat.define-typography-level(32px, 40px, 700, 'ShareTech'),
+  $headline-1: mat.define-typography-level(28px, 34px, 700, 'ShareTech'),
+  $subtitle-1: mat.define-typography-level(22px, 34px, 400, 'ShareTech'),
+  $body-2: mat.define-typography-level(18px, 18px, 400, 'ShareTech'),
+  $body-1: mat.define-typography-level(16px, 18px, 200, 'ShareTech'),
+  $caption: mat.define-typography-level(14px, 18px, 200, 'ShareTech'),
+  $button: mat.define-typography-level(14px, 34px, 700, 'ShareTech'),
+);
+
+//add extras palette //
+$work-custom-white: mat.define-palette(color-palette.$md-customwhite);
+$work-custom-black: mat.define-palette(color-palette.$custom-dark);
+
+@function apply-extra-color-white($theme) {
+  @return map.deep-merge($theme, (
+    white: $work-custom-white,
+    color: (
+      white: $work-custom-white,
+    ),
+          typography: $custom-typography,
+
+  ));
+}
+
+@function apply-extra-color-black($theme) {
+  @return map.deep-merge($theme, (
+    black: $work-custom-black,
+    color: (
+      black: $work-custom-black,
+    ),
+          typography: $custom-typography,
+
+  ));
+}
+
+@mixin create-theme($custom-theme) {
+  @include mat.all-component-themes($custom-theme);
+  @include mat.button-typography($custom-typography);
+  // Set the default typography
+  @include mat.all-component-typographies($custom-typography);
+  @include mat.core();
+}

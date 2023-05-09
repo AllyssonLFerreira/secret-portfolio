@@ -1,0 +1,28 @@
+@keyframes movement-bouce {
+
+  0% {
+     -webkit-transform: translateX(0);
+     transform: translateX(0);
+   }
+  50% {
+      -webkit-transform: translateX(-15px);
+      transform: translateX(-15px);
+    }
+  
+  100% {
+       -webkit-transform: translateX(0);
+       transform: translateX(0);
+     }
+}
+//////////////////
+@keyframes scanline {
+	0.01% {
+		transform: translatey(-100%);
+	}
+	99.99% {
+		transform: translatey(0);
+	}
+	100% {
+		transform: translatey(-100%);
+	}
+}

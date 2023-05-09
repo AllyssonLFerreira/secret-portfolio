@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/global.scss"
             ],
             "scripts": []
           },
@@ -63,6 +63,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "nome-do-projeto:build",
+            "host": "0.0.0.0"
+          },
           "configurations": {
             "production": {
               "browserTarget": "cyberpunk-portofolio:build:production"
@@ -100,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0d8759c1-1049-465e-b579-f821b5404a73"
   }
 }

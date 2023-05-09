@@ -1,0 +1,38 @@
+@use "node_modules/@angular/material/index" as mat;
+@use 'color-palette';
+@use 'common';
+@use "sass:map";
+
+@import './styles.scss';
+@import 'animations/retrowave.scss';
+@import 'animations/glitch.scss';
+@import 'animations/commons.scss';
+
+$custom-primary: mat.define-palette(color-palette.$md-customPrimary);
+$custom-accent: mat.define-palette(color-palette.$custom-accent);
+$custom-warn: mat.define-palette(color-palette.$custom-warn);
+
+$custom-dark-theme: mat.define-dark-theme(( color: (
+  primary: $custom-primary,
+  accent: $custom-accent,
+  warn: $custom-warn,
+),
+  typography: common.$custom-typography,
+  density: 0,
+));
+
+// Apply-extra-colors
+$custom-dark-theme: common.apply-extra-color-white($custom-dark-theme);
+$custom-dark-theme: common.apply-extra-color-black($custom-dark-theme);
+
+//Generate theme
+@include common.create-theme($custom-dark-theme);
+
+a, i {
+  cursor: pointer;
+} 
+
+.divider {
+  border-bottom: 1px solid mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
+}
+
