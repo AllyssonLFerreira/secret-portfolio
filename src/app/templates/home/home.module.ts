@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { PresentationComponent } from './components/presentation/presentation.component';
-import { SharedModule } from '../shared/shared.module';
-import { AboutComponent } from './components/about/about.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { WorksAndProjectsComponent } from './components/works-and-projects/works-and-projects.component';
 
 
 
@@ -12,7 +13,8 @@ import { AboutComponent } from './components/about/about.component';
   declarations: [
     HomeComponent,
     PresentationComponent,
-    AboutComponent
+    SkillsComponent,
+    WorksAndProjectsComponent
   ],
   imports: [
     CommonModule,

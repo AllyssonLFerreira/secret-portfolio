@@ -1,0 +1,98 @@
+@use "node_modules/@angular/material/index" as mat;
+@use 'src/styles/color-palette';
+
+$blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A100));
+$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
+
+.presentation-dimension {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 25%;
+  max-width: 50%;
+  max-height: 46rem !important;
+  overflow-y: auto;
+}
+
+.text-section {
+  display: flex;
+  max-width: 45%;
+  flex-direction: column;
+}
+
+.presentation-table {
+  max-width: 60%;
+  max-height: 29.25rem;
+  margin-bottom: 2rem !important;
+}
+
+.typewriter {
+  display: flex;
+  flex-direction: column;
+}
+
+.typewriter::after {
+  position: relative;
+  display: inline-block;
+  content: '';
+  width: .45em;
+  height: .85em;
+  background-color: $white;
+  animation: text-blink 1.25s infinite;
+  box-shadow: 0 1px 10px $blue-light;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  bottom: 1.75rem;
+  right: 0.5px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2.5rem;
+  }
+}
+
+@media (min-width: 852px) and (max-width: 1279px) {
+  .presentation-dimension {
+    max-width: 75%;
+    left: 15%;
+  }
+}
+
+@media (min-width: 702px) and (max-width: 851px) {
+  .presentation-dimension {
+    max-width: 90%;
+    left: 5%;
+  }
+}
+
+@media (min-width: 355px) and (max-width: 701px) {
+  .presentation-dimension {
+    max-width: 90%;
+    height: 75vh;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .presentation-table {
+      align-self: end;
+
+      max-width: 18rem;
+      max-height: 29.25rem;
+    }
+
+
+    .text-section {
+      max-width: 90%;
+    }
+    .typewriter {
+      max-height: 36rem;
+    }
+  }
+}

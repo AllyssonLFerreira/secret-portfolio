@@ -1,83 +1,65 @@
-body {
-  background-color: black;
-}
+@use "node_modules/@angular/material/index" as mat;
+@use 'src/styles/color-palette';
 
-#intro {
-  color: white;
-  font-family: "VT323", monospace;
-}
+$primary: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$accent: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
+$warn: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-warn, A700));
+$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
+$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
 
-.center-center {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%);
-}
-
-[class*="btn-glitch-"] {
-  display: inline-block;
-  font-family: "VT323", monospace;
-  border: 1px solid white;
-  color: white;
-  padding: 10px 13px;
-  min-width: 175px;
-  line-height: 1.5em;
-  white-space: no-wrap;
-  text-transform: uppercase;
+section {
+  z-index: 1000 !important;
+  position: relative;
+  display: grid;
   cursor: pointer;
-  .text,
-  .decoration {
-    display: inline-block;
-  }
-  .decoration {
-    display: inline-block;
-    float: right;
-  }
-  &:hover, &:focus {
-    animation-name: glitch;
-    animation-duration: 0.2s;
-    background-color: yellow;
-    color:black;
-    border: 1px solid yellow;
-    .text-decoration {
-      animation-name: blink;
-      animation-duration: 0.1s;
-      animation-iteration-count: infinite;
+}
+
+
+.glitch-effect {
+  color: $white;
+  border: 1px solid;
+  padding: 0.6rem 0.81rem;
+  line-height: 1.5em;
+  max-width: 16.5rem;
+  min-width: 9.5rem;
+  &:hover, 
+  &:focus {
+    background-color: transparent;
+    color: $primary;
+    border: 1px solid $primary;
+    .underline-decoration {
+      animation: blink 0.1s infinite;
     }
-    .decoration {
-      animation-name: blink;
-      animation-duration: 0.1s;
-      animation-iteration-count: infinite;
+    .arrow-decoration {
+      animation: blink 0.1s infinite;
     }
     :before {
       content: " ";
-      width: 15px;
-      border: 1px solid black;
+      width: 0.93rem;
+      border: 1px solid $primary;
+      left: 50%;
       position: absolute;
-      right: 25%;
-      bottom: 3px;
-      transform: rotate(35deg)
+      bottom: 2%; 
+      transform: rotate(45deg)
     }
     :after {
-      animation-name: shrink;
-      animation-duration:.5s;
-      animation-iteration-count: 1;
-      animation-fill-mode : forwards;
       content: " ";
       width: 75%;
-      border: 1px solid black;
+      border: 1px solid $primary;
       position: absolute;
       left: 0;
-      bottom: 5px;
+      bottom: 2%;
+      animation: shrink .5s 1 forwards;
     }
   }
   &:active {
-    background: none;
-    color:yellow;
-    .text-decoration {
+    background: $black;
+    color:$accent;
+    animation: color-glitch .1s ease-in-out;
+    .underline-decoration {
       animation-name: none;
     }
-    .decoration {
+    .arrow-decoration {
       animation-name: none;
     }
     :before, :after {
@@ -86,26 +68,31 @@ body {
   }
 }
 
-@keyframes glitch {
+.underline-decoration,
+.arrow-decoration {
+  display: inline-block;
+}
+
+@keyframes color-glitch {
   25% {
-    background-color: red;
+    color: $warn;
     transform: translateX(-10px);
     letter-spacing: 10px;
   }
   35% {
-    background-color: green;
+    color: $accent;
     transform: translate(10px);
   }
   59% {
     opacity: 0;
   }
   60% {
-    background-color: blue;
+    color: $primary;
     transform: translate(-10px);
     filter: blur(5px);
   }
   100% {
-    background-color: yellow;
+    color: $accent;
     blur: (5px);
   }
 }

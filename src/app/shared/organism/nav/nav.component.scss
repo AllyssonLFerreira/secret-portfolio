@@ -1,0 +1,9 @@
+nav {
+  margin: 1rem 0 0 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  .button-container{
+    max-width: 18rem;
+  }
+}

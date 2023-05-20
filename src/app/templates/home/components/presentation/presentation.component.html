@@ -1,0 +1,31 @@
+<ng-container>
+
+  <section class="box-style presentation-dimension">
+
+    <div class="text-section">
+      <h1 class="mat-headline-4 caption">//Allysson L. Ferreira_&rArr;</h1>
+      <div class="typewriter">
+        <p class="mat-body-1"> &rArr; My name is Allysson Ferreira I'm a fullstack developer located in Brazil.  </p>
+        <p class="mat-body-1"> &rArr; I have a serious passion for user interface effects and creating intuitive and dynamic user experiences.  </p>
+        <p class="mat-body-1"> &rArr; I've worked on large and small projects, working with Java, Node.js, Typescript, Angular and React stacks. </p>
+        <p class="mat-body-1"> &rArr; Interested in all stages of software development and completely passionate about games where I dedicate many of my personal studies. </p>
+      </div>
+    </div>
+
+    <ng-container *ngFor="let table of tables">
+      <app-table  class="presentation-table"
+                  img="{{table.img}}"
+                  [tableData]="table.tr"/>
+    </ng-container>
+  </section>
+
+  <nav>
+    <ul>
+      <app-cyber-button text="Download _Secret_CV"
+                         (click)="downloadPDF()"/>
+
+      <app-cyber-button text="MY_SECRET _SKILLS"
+                          routerLink="skills"/>
+    </ul>
+  </nav>
+</ng-container>

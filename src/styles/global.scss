@@ -8,7 +8,7 @@
 @import 'animations/glitch.scss';
 @import 'animations/commons.scss';
 
-$custom-primary: mat.define-palette(color-palette.$md-customPrimary);
+$custom-primary: mat.define-palette(color-palette.$custom-primary);
 $custom-accent: mat.define-palette(color-palette.$custom-accent);
 $custom-warn: mat.define-palette(color-palette.$custom-warn);
 
@@ -28,11 +28,49 @@ $custom-dark-theme: common.apply-extra-color-black($custom-dark-theme);
 //Generate theme
 @include common.create-theme($custom-dark-theme);
 
-a, i {
-  cursor: pointer;
-} 
+//root color-variables
+$blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$blue-regular: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A400));
+$blue-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A700));
+$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A100));
+$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
+$extra-black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 900));
+$gray: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 300));
+$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white, 900,));
+$purple-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
+$purple: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
 
-.divider {
-  border-bottom: 1px solid mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
+.mat-app-background {
+  background-color: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 900));
 }
 
+//cyber box-shadow and border //
+.box-style {
+  padding: 1.75rem 2.5rem;
+  max-width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(45deg, rgba($blue-light, 0.2), rgba($purple-light, 0.2));
+  box-shadow: 0 0 0.625rem rgba($black, 0.9);
+
+}
+
+@media (min-width: 355px) and (max-width: 767px) {
+
+  body {
+    padding: 4rem 0.5rem 2rem 2rem;
+  }
+
+  .box {
+    position: fixed;
+    padding: 1rem 1.25rem;
+    overflow-y: auto;
+  }
+
+  .mat-headline-4 {
+    margin-bottom: 0.25rem !important;
+  }
+}
+
+:host::ng-deep.mat-headline-4{
+  margin: 0 0 2rem 0;
+}

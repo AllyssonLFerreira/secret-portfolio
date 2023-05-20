@@ -4,8 +4,8 @@ import { LoadingComponent } from './shared/organism/loading/loading.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('src/app/home/home.module').then(m => m.HomeModule)
+    path: 'secret',
+    loadChildren: () => import('src/app/templates/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'reboot',

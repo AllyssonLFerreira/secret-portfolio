@@ -12,7 +12,7 @@
 	}
 }
 
-@keyframes glitch--top {
+@keyframes glitch-top {
 	2%,
 	64% {
 		transform: translate(2px, -2px);
@@ -26,7 +26,7 @@
 	}
 }
 
-@keyframes glitch--bottom {
+@keyframes glitch-bottom {
 	2%,
 	64% {
 		transform: translate(-2px, 0);

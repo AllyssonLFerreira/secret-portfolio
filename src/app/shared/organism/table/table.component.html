@@ -1,0 +1,30 @@
+<ng-container *ngIf="tableDataWithProgress">
+
+    <div class="table">
+      <h2 class="mat-headline-4 caption header">{{title}}</h2>
+      <div class="tbody">
+        <div class="tr" *ngFor="let row of tableDataWithProgress">
+          <span class="td text">{{row.description}}</span>
+          <span class="td prog-bar"> <progress value="{{row.progress}}" max="100" class="progress"></progress> </span>
+        </div>
+      </div>
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="tableData">
+
+    <div class="table">
+      <div class="image-container">
+        <img src="{{img}}" />
+      </div>
+      <div class="tbody">
+        <div class="tr" *ngFor="let row of tableData">
+          <span class="td text">{{row.description}}</span>
+          <span class="td text"> {{row.value}} </span>
+        </div>
+      </div>
+    </div>
+
+</ng-container>
+
