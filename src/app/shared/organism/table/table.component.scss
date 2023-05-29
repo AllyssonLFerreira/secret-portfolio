@@ -64,15 +64,13 @@ $accent-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custo
   .progress {
     border: none;
     border-radius: 0;
-    max-width: 6rem;
+    max-width: 5.5rem;
     background-color: rgba($extra-black, 0.4);
-    /* box-shadow: 0px 0px 2px  $white inset; */
   }
 
   progress[value]::-webkit-progress-bar {
-    max-width: 6rem;
+    max-width: 5.5rem;
     background-color: rgba($extra-black, 0.4);
-    /* box-shadow: 0px 0px 2px  $white inset; */
   }
 
   progress[value]::-webkit-progress-value{
@@ -80,7 +78,7 @@ $accent-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custo
   }
 
   progress::-moz-progress-bar {
-    max-width: 6rem;
+    max-width: 5.5rem;
     background: linear-gradient(to right, $primary-light, $accent-light );
   }
 }

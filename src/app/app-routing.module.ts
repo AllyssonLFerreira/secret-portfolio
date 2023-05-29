@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoadingComponent } from './shared/organism/loading/loading.component';
+import { RetrowaveBackgroundComponent } from "./shared/atoms/retrowave-background/retrowave-background.component";
 
 const routes: Routes = [
   {

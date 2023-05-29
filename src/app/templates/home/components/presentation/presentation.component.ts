@@ -1,57 +1,47 @@
-import { AfterViewInit, Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-
+import {interval, map, Observable, of, Subscription, take} from "rxjs";
+import {Flow} from "../../../../integration/model/Flow.model";
+import {FlowStore} from "../../../../integration/store/flow.store";
+import {PresentationStore} from "../../../../integration/store/home/presentation.store";
 
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.scss']
 })
-export class PresentationComponent implements AfterViewInit {
+export class PresentationComponent implements AfterViewInit, OnInit, OnDestroy {
+  @ViewChild("textElement") textElement!: ElementRef;
 
-  tables = [
-    {
-      title: 'target data',
-      img: '/assets/img/presentation.jpeg',
-      tr: [
-        {description: 'TARGET', value: "Allysson Lima Ferreira"},
-        {description: 'PROFESSION', value: "Software Engineer"},
-        {description: 'LOCATION', value: "Brazil, RS"},
-        {description: 'AGE', value: "27"},
-        {description: 'SEX', value: "Male"},
-        {description: "CHILDREN", value: "Two Cats"},
-      ]
-    },
-  ]
-  constructor( private _HTTP: HttpClient) {
+  state$!: Observable<Flow | undefined>;
+  subs!: Subscription;
+  textPresentation!: string[] | undefined;
 
-   }
-
-  ngAfterViewInit(): void {
-    const typewriterElements = document.querySelectorAll('.typewriter');
-    const typewriterArray = Array.from(typewriterElements) as HTMLElement[];
-
-    for (const elm of typewriterArray) {
-      const text = elm.innerText;
-
-      // clear text
-      elm.innerText = '';
-
-      let i = 0;
-
-      const t = setInterval(() => {
-        elm.innerText = text.substr(0, i);
-
-        i++;
-
-        if (i > text.length) {
-          clearInterval(t);
-        }
-      }, 20);
-    }
+  constructor( private _HTTP: HttpClient,
+               private _FLOW: FlowStore,
+               private _PRESENTATION: PresentationStore) {
+    this.state$ = this._FLOW.getState()
   }
 
+  writeTextInTypewriterStyle(text: string): Observable<string> {
+    const typingSpeed = 50; // Velocidade da digitação (em milissegundos)
 
+    return interval(typingSpeed).pipe(
+      take(text.length),
+      map((index: number) => text.slice(0, index + 1))
+    );
+  }
+
+  ngOnInit() {
+    this.subs = this._PRESENTATION.fetchState()
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+  ngOnDestroy() {
+    this.subs.unsubscribe()
+  }
   downloadPDF(): void {
     this._HTTP
       .get('assets/pdf/allysson-ferreira.pdf', {responseType: 'blob'})
@@ -64,11 +54,5 @@ export class PresentationComponent implements AfterViewInit {
         link.click();
       })
   }
-
 }
-
-
-
-
-
 

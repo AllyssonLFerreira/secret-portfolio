@@ -5,13 +5,17 @@ $black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark
 $accent: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
 $accent-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
 $accent-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
-
 $primary-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A400));
 $primary-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A700));
 
+.scan-container {
+  width: 100vw;
+  height: 50vh
+}
+
 // Scene
 .scene {
-  position: fixed;
+  position: absolute;
   z-index: -100;
   top: 0;
   left: 0;
@@ -19,7 +23,6 @@ $primary-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$cust
   display: block;
   height: 100%;
   width: 100%;
-
 }
 
 .scene__frame {
@@ -40,7 +43,7 @@ $primary-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$cust
 
 // Scene Enhanced
 $scene-scale: 4;
-$grid-colour: $accent-bold;
+$grid-colour: $accent-light;
 
 .scene__perspective {
   position: fixed;
@@ -80,57 +83,28 @@ $grid-colour: $accent-bold;
 .scene__grid-x {
   background-image: linear-gradient(
       to left,
-      rgba($grid-colour, 1) 2px,
-      transparent 2px
+      rgba($grid-colour, 0.2) 1px,
+      transparent 1px
   );
 }
 
 .scene__grid-y {
   background-image: linear-gradient(
       to top,
-      rgba($grid-colour, 1) 1px,
-      transparent 1px
+      rgba($grid-colour, 0.2) 2px,
+      transparent 2px
   );
 }
 
 .scene__cover--frame {
   background: linear-gradient(
       180deg,
-      rgba($primary-light, 0.5) 0%,
-      rgba($primary-bold, 0.8) 25%,
       rgba($black, 0.1) 50%,
-      rgba($black, 1) 100%
+      rgba($primary-light, 0.4) 100%
   );
-}
-
-
-.scene__cover--scene {
-  z-index: -10;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-  background: linear-gradient(
-      to top,
-      rgba($black, 1) 1px,
-      transparent 1px
-  );
-  background-position: 50% 50%;
-  background-repeat: repeat;
-  background-size: 100% 2px;
 }
 
 @supports (will-change: transform) {
-  .scene__frame {
-    opacity: 0;
-    will-change: opacity, transform;
-    animation-duration: 3600ms;
-    animation-iteration-count: 1;
-    animation-name: fade-in;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
   .scene__perspective {
     perspective-origin: 50% 100%;
     will-change: perspective-origin;
@@ -149,5 +123,4 @@ $grid-colour: $accent-bold;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
   }
-
 }

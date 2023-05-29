@@ -10,6 +10,6 @@ export class SharedDirective {
   @Input() title!: string;
   @Input() img!: string | null
   @Input() path: any;
-  @Input() loopFor: any;
   @Input() progress!: number | string;
+  @Input() value!: string;
   }

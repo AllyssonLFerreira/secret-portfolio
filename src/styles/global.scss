@@ -30,15 +30,10 @@ $custom-dark-theme: common.apply-extra-color-black($custom-dark-theme);
 
 //root color-variables
 $blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
-$blue-regular: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A400));
-$blue-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A700));
-$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A100));
+$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A200));
 $black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
-$extra-black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 900));
-$gray: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 300));
 $white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white, 900,));
 $purple-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
-$purple: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
 
 .mat-app-background {
   background-color: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 900));
@@ -51,7 +46,22 @@ $purple: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-acc
   min-height: 60vh;
   background: linear-gradient(45deg, rgba($blue-light, 0.2), rgba($purple-light, 0.2));
   box-shadow: 0 0 0.625rem rgba($black, 0.9);
+}
+//typewritter effect container //
+.typewriter {
+  display: flex;
+  flex-direction: column;
+}
 
+.typewriter::after {
+  position: relative;
+  display: inline-block;
+  content: '';
+  width: .45em;
+  height: .85em;
+  background-color: $white;
+  animation: text-blink 1.25s infinite;
+  box-shadow: 0 1px 10px $blue-light;
 }
 
 @media (min-width: 355px) and (max-width: 767px) {
@@ -71,6 +81,14 @@ $purple: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-acc
   }
 }
 
-:host::ng-deep.mat-headline-4{
-  margin: 0 0 2rem 0;
+@supports (will-change: transform) {
+  .frame {
+    opacity: 0;
+    will-change: opacity, transform;
+    animation-duration: 3600ms;
+    animation-iteration-count: 1;
+    animation-name: fade-in;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
 }

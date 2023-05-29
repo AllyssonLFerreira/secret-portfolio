@@ -1,0 +1,21 @@
+<div class="scanner">
+    <table class="frame">
+      <tr>
+        <td (click)="toggleActive($event)" *ngFor="let tile of tiles" [class.active]="tile.active"></td>
+      </tr>
+      <tr>
+        <td (click)="toggleActive($event)" *ngFor="let tile of tiles" [class.active]="tile.active" class="dot"></td>
+      </tr>
+      <tr>
+        <td (click)="toggleActive($event)" *ngFor="let tile of tiles" [class.active]="tile.active" class="dot"></td>
+      </tr>
+      <tr>
+        <td (click)="toggleActive($event)" *ngFor="let tile of tiles" [class.active]="tile.active" class="dot"></td>
+      </tr>
+      <tr>
+        <td (click)="toggleActive($event)" *ngFor="let tile of tiles" [class.active]="tile.active" class="dot"></td>
+      </tr>
+    </table>
+    <div #scanline id="scanline" class="run"></div>
+</div>
+

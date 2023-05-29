@@ -2,21 +2,10 @@
 @use 'color-palette';
 @use "sass:map";
 
-//define-assets-fonts
-  @font-face {
-    font-family: ShareTech;
-    src: url('../assets/fonts/ShareTechMono-Regular.ttf') format("opentype");
-  };
-
-  @font-face {
-    font-family: Tech;
-    src: url('../assets/fonts/ShareTech-Regular.ttf') format('opentype');
-  };
-
-  @font-face {
-    font-family: Inconsolata;
-    src: url('../assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf') format('opentype');
-  }
+@font-face {
+  font-family: Tech;
+  src: url('../assets/fonts/ShareTech-Regular.ttf') format('opentype');
+};
 
 //create-custom-typography-for-project
   $custom-typography: mat.define-typography-config(
@@ -40,22 +29,16 @@ $work-custom-black: mat.define-palette(color-palette.$custom-dark);
 @function apply-extra-color-white($theme) {
   @return map.deep-merge($theme, (
     white: $work-custom-white,
-    color: (
-      white: $work-custom-white,
-    ),
-          typography: $custom-typography,
-
+    color: ( white:$work-custom-white ),
+    typography: $custom-typography,
   ));
 }
 
 @function apply-extra-color-black($theme) {
   @return map.deep-merge($theme, (
     black: $work-custom-black,
-    color: (
-      black: $work-custom-black,
-    ),
-          typography: $custom-typography,
-
+    color: ( black:$work-custom-black ),
+    typography: $custom-typography,
   ));
 }
 

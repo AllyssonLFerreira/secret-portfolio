@@ -1,9 +1,9 @@
 @use "node_modules/@angular/material/index" as mat;
 @use 'src/styles/color-palette';
 
-$primary: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
-$accent: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
-$warn: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-warn, A700));
+$blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$purple-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
+$red: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-warn, A700));
 $white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
 $black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
 
@@ -14,7 +14,6 @@ section {
   cursor: pointer;
 }
 
-
 .glitch-effect {
   color: $white;
   border: 1px solid;
@@ -22,11 +21,11 @@ section {
   line-height: 1.5em;
   max-width: 16.5rem;
   min-width: 9.5rem;
-  &:hover, 
+  &:hover,
   &:focus {
     background-color: transparent;
-    color: $primary;
-    border: 1px solid $primary;
+    color: $blue;
+    border: 1px solid $blue;
     .underline-decoration {
       animation: blink 0.1s infinite;
     }
@@ -36,16 +35,16 @@ section {
     :before {
       content: " ";
       width: 0.93rem;
-      border: 1px solid $primary;
+      border: 1px solid $blue;
       left: 50%;
       position: absolute;
-      bottom: 2%; 
+      bottom: 2%;
       transform: rotate(45deg)
     }
     :after {
       content: " ";
       width: 75%;
-      border: 1px solid $primary;
+      border: 1px solid $blue;
       position: absolute;
       left: 0;
       bottom: 2%;
@@ -54,7 +53,7 @@ section {
   }
   &:active {
     background: $black;
-    color:$accent;
+    color:$purple-light;
     animation: color-glitch .1s ease-in-out;
     .underline-decoration {
       animation-name: none;
@@ -75,24 +74,24 @@ section {
 
 @keyframes color-glitch {
   25% {
-    color: $warn;
+    color: $red;
     transform: translateX(-10px);
     letter-spacing: 10px;
   }
   35% {
-    color: $accent;
+    color: $purple-light;
     transform: translate(10px);
   }
   59% {
     opacity: 0;
   }
   60% {
-    color: $primary;
+    color: $blue;
     transform: translate(-10px);
     filter: blur(5px);
   }
   100% {
-    color: $accent;
+    color: $purple-light;
     blur: (5px);
   }
 }

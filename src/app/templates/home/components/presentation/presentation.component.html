@@ -1,21 +1,19 @@
-<ng-container>
+<ng-container *ngIf="state$ | async as content">
 
-  <section class="box-style presentation-dimension">
+  <section class="box-style">
 
     <div class="text-section">
-      <h1 class="mat-headline-4 caption">//Allysson L. Ferreira_&rArr;</h1>
+      <h1 class="mat-headline-4 caption">//target_ briefing_&rArr;</h1>
       <div class="typewriter">
-        <p class="mat-body-1"> &rArr; My name is Allysson Ferreira I'm a fullstack developer located in Brazil.  </p>
-        <p class="mat-body-1"> &rArr; I have a serious passion for user interface effects and creating intuitive and dynamic user experiences.  </p>
-        <p class="mat-body-1"> &rArr; I've worked on large and small projects, working with Java, Node.js, Typescript, Angular and React stacks. </p>
-        <p class="mat-body-1"> &rArr; Interested in all stages of software development and completely passionate about games where I dedicate many of my personal studies. </p>
+        <p *ngFor="let data of content.presentation.textBox" class="mat-body-2"> &rArr; {{data.text}} </p>
       </div>
     </div>
 
-    <ng-container *ngFor="let table of tables">
-      <app-table  class="presentation-table"
-                  img="{{table.img}}"
-                  [tableData]="table.tr"/>
+    <ng-container *ngFor="let table of content.presentation.table">
+      <div class="presentation-table">
+        <app-table  img="{{table.img}}"
+                    [tableData]="table.tr"/>
+      </div>
     </ng-container>
   </section>
 

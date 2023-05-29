@@ -5,7 +5,7 @@
       <div class="tbody">
         <div class="tr" *ngFor="let row of tableDataWithProgress">
           <span class="td text">{{row.description}}</span>
-          <span class="td prog-bar"> <progress value="{{row.progress}}" max="100" class="progress"></progress> </span>
+          <span class="td prog-bar"> <progress value="{{row.value}}" max="100" class="progress"></progress> </span>
         </div>
       </div>
     </div>

@@ -1,16 +1,17 @@
-<ng-container>
+<ng-container *ngIf="state$ | async as content">
   <section>
     <div class="row-alignment">
       <div class="box-style introduction">
-        <h2 class="mat-headline-4 caption">// skills _&rArr;</h2>
-        <span class="mat-body-2">_&rArr; I create successful responsive websites that are fast, easy to use and built with best practices.</span>
-        <span class="mat-body-2">_&rArr; My main area of expertise is front-end development where I am currently developing with angular and creating small to large and complex web applications.</span>
-        <span class="mat-body-2">_&rArr; I currently focus most of my studies on 3d game development and keep up to date with the main technologies and practices in the market, I have very advanced knowledge in HTML and CSS.</span>
-        <span class="mat-body-2">_&rArr; I have knowledge in Backend in highly complex languages such as Java and C#, as well as frameworks such as NodeJs. </span>
+        <h2 class="mat-headline-4 caption">//skills_&rArr;</h2>
+        <div class="typewriter">
+          <p class="mat-body-2" *ngFor="let data of content.skills.textBox">
+            _&rArr; {{data.text}}
+          </p>
+        </div>
       </div>
 
       <div class="tables-container">
-        <ng-container *ngFor="let tables of tables">
+        <ng-container *ngFor="let tables of content.skills.table">
             <app-table class="tables-width"
                       title="{{tables.title}}"
                       [tableDataWithProgress]="tables.tr" />

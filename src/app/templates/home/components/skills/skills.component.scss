@@ -4,16 +4,25 @@ section {
   max-height: 100%;
   position: relative;
 
-  .mat-headline-4 {
-    margin: 0 !important;
-  }
-
-  .introduction {
+  .row-alignment {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    min-height: auto !important;
-    max-height: 32rem;
+    gap: 3rem;
+
+    .introduction {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      min-height: auto !important;
+      max-height: 32rem;
+      min-width: 70%;
+    }
+
+    .mat-headline-4 {
+      margin: 0 !important;
+    }
+    .mat-body-2 {
+      margin-bottom: 2rem !important;
+    }
   }
 
   .tables-container {
@@ -25,11 +34,6 @@ section {
     .tables-width {
       width: 20rem;
     }
-  }
-
-  .row-alignment {
-    display: flex;
-    gap: 1rem;
   }
 
   nav {
@@ -47,15 +51,20 @@ section {
     flex-direction: column;
     left: 0;
     .introduction {
-      width: 90% !important;
-      max-height: 50%;
+      width: 95% !important;
+      max-height: 200vh !important;
     }
     .row-alignment {
       flex-direction: column;
     }
     .tables-container {
-      justify-content: flex-start;
+      justify-content: flex-start !important;
       gap: 1rem;
+    }
+    nav {
+      ul {
+        justify-content: flex-start !important;
+      }
     }
   }
 }

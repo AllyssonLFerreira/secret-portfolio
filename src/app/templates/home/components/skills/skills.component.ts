@@ -1,50 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {SkillsStore} from "../../../../integration/store/home/skills.store";
+import {FlowStore} from "../../../../integration/store/flow.store";
+import {Observable, Subscription} from "rxjs";
+import {Flow} from "../../../../integration/model/Flow.model";
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent implements OnInit, AfterViewInit, OnInit, OnDestroy {
 
-  tables = [
-     {
-      title: 'LANGUAGES',
-      tr: [
-        {description: 'Javascript', progress: 85},
-        {description: 'Typescript', progress: 85},
-        {description: 'HTML', progress: 100},
-        {description: 'CSS', progress: 100},
-        {description: 'Java', progress: 35},
-        {description: 'C# & C++', progress: 50},
-        {description: 'SQL', progress: 50}
-      ]
-    },
-    {
-      title: 'FRAMEWORKS',
-        tr: [
-          {description: 'Angular', progress: 100},
-          {description: 'React', progress: 65},
-          {description: 'NgRx / Redux', progress: 75},
-          {description: 'Tailwind', progress: 100},
-          {description: 'Material UI', progress: 75},
-          {description: 'Unity', progress: 50},
-          {description: 'Node.JS', progress: 75}
-        ]
-    },
-    {
-      title: 'SKILLSET',
-        tr: [
-          {description: 'GIT', progress: 100},
-          {description: 'Rel / Non-rel databases', progress: 65},
-          {description: 'API creation / integration', progress: 100},
-          {description: 'Single pages APPS', progress: 100},
-          {description: 'Micro-Services', progress: 100},
-          {description: 'Procedura / Functional / OOP', progress: 85},
-        ]
-    },
-  ]
-  constructor() { }
+  subs!: Subscription;
+  state$: Observable<Flow | undefined>
+  constructor(private _SKILLS: SkillsStore,
+              private _FLOW: FlowStore) {
+    this.state$ = this._FLOW.getState()
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.subs = this._SKILLS.fetchState()
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe()
+  }
+
+  ngAfterViewInit(): void {
+    /*const typewriterElements = document.querySelectorAll('.typewriter');
+    console.log(typewriterElements)
+    const typewriterArray = Array.from(typewriterElements) as HTMLElement[];
+
+    for (const elm of typewriterArray) {
+      const text = elm.innerText;
+
+      // clear text
+      elm.innerText = '';
+
+      let i = 0;
+
+      const t = setInterval(() => {
+        elm.innerText = text.substr(0, i);
+
+        i++;
+
+        if (i > text.length) {
+          clearInterval(t);
+        }
+      }, 20);
+    }*/
+  }
 }

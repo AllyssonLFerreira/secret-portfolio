@@ -1,46 +1,21 @@
-@use "node_modules/@angular/material/index" as mat;
-@use 'src/styles/color-palette';
-
-$blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
-$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A100));
-$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
-
-.presentation-dimension {
+section {
   display: flex;
   justify-content: space-between;
   position: fixed;
   left: 25%;
-  max-width: 50%;
-  max-height: 46rem !important;
-  overflow-y: auto;
-}
-
-.text-section {
-  display: flex;
-  max-width: 45%;
-  flex-direction: column;
-}
-
-.presentation-table {
-  max-width: 60%;
-  max-height: 29.25rem;
-  margin-bottom: 2rem !important;
-}
-
-.typewriter {
-  display: flex;
-  flex-direction: column;
-}
-
-.typewriter::after {
-  position: relative;
-  display: inline-block;
-  content: '';
-  width: .45em;
-  height: .85em;
-  background-color: $white;
-  animation: text-blink 1.25s infinite;
-  box-shadow: 0 1px 10px $blue-light;
+  width: 50%;
+  max-height: 46rem;
+  overflow-y: auto !important;
+  .text-section {
+    display: flex;
+    max-width: 45%;
+    flex-direction: column;
+  }
+  .presentation-table {
+    max-width: 60%;
+    max-height: 29.25rem;
+    margin-bottom: 2rem;
+  }
 }
 
 nav {
@@ -55,24 +30,23 @@ nav {
   }
 }
 
-@media (min-width: 852px) and (max-width: 1279px) {
-  .presentation-dimension {
-    max-width: 75%;
+@media (min-width: 858px) and (max-width: 1364px) {
+  section {
     left: 15%;
+    width: 75%;
   }
 }
-
-@media (min-width: 702px) and (max-width: 851px) {
-  .presentation-dimension {
-    max-width: 90%;
+@media (min-width: 706px) and (max-width: 857px) {
+  section {
+    width: 90%;
     left: 5%;
+    max-height: 65%;
   }
 }
-
-@media (min-width: 355px) and (max-width: 701px) {
-  .presentation-dimension {
-    max-width: 90%;
-    height: 75vh;
+@media (min-width: 355px) and (max-width: 705px) {
+  section {
+    width: 90%;
+    max-height: 75vh;
     position: fixed;
     top: 5%;
     left: 5%;
@@ -80,19 +54,16 @@ nav {
     flex-direction: column;
     justify-content: space-between;
 
-    .presentation-table {
-      align-self: end;
-
-      max-width: 18rem;
-      max-height: 29.25rem;
-    }
-
-
     .text-section {
       max-width: 90%;
     }
     .typewriter {
       max-height: 36rem;
+    }
+    .presentation-table {
+      align-self: end;
+      max-width: 18rem;
+      max-height: 29.25rem;
     }
   }
 }

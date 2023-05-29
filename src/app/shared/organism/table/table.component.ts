@@ -8,8 +8,7 @@ import {SharedDirective} from "../../shared.directive";
 })
 export class TableComponent extends SharedDirective {
 
-  @Input() tableDataWithProgress!: { description: string; progress: number | string }[];
-
+  @Input() tableDataWithProgress!: { description: string; value: number | string }[];
   @Input() tableData!: { description: string; value: string | number }[];
 
   constructor() {

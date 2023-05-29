@@ -8,13 +8,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { WorksAndProjectsComponent } from './components/works-and-projects/works-and-projects.component';
 
 
-
 @NgModule({
   declarations: [
     HomeComponent,
     PresentationComponent,
     SkillsComponent,
-    WorksAndProjectsComponent
+    WorksAndProjectsComponent,
   ],
   imports: [
     CommonModule,

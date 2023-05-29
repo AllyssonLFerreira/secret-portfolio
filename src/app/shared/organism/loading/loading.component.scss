@@ -1,8 +1,10 @@
 @use "node_modules/@angular/material/index" as mat;
 @use 'src/styles/color-palette';
 
-$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
-$primary: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
+$blue: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary));
+$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A200));
+$purple-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
 
 section {
 	display: grid;
@@ -10,68 +12,71 @@ section {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
+  .terminal {
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    padding: 1rem;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
+  }
 
-.terminal {
-	display: grid;
-	grid-row: 1;
-	grid-column: 1;
-	padding: 1rem;
-	grid-template-rows: 1fr auto 1fr;
-	grid-template-columns: 1fr auto 1fr;
-}
+  .glitch {
+    animation: glitch 1.5s linear infinite;
+  }
 
-.glitch {
-	animation: glitch 1.5s linear infinite;
-}
+  .glitch--clone {
+    opacity: 0.2;
+  }
 
-.glitch--clone {
-	opacity: 0.2;
-}
+  .glitch--clone .sys-rec {
+    filter: blur(2px);
+    opacity: 0.8;
+  }
 
-.glitch--clone .sys-rec {
-	filter: blur(2px);
-	opacity: 0.8;
-}
+  .glitch--top {
+    animation: glitch-top 1s linear infinite;
+  }
 
-.glitch--top {
-	animation: glitch-top 1s linear infinite;
-}
+  .glitch--top .sys-rec {
+    transform: translate(4vw, 4vw);
+  }
 
-.glitch--top .sys-rec {
-	transform: translate(4vw, 4vw);
-}
+  .glitch--bottom {
+    animation: glitch-bottom 0.75s linear infinite;
+  }
 
-.glitch--bottom {
-	animation: glitch-bottom 0.75s linear infinite;
-}
+  .glitch--bottom .sys-rec {
+    transform: translate(-1vw, -1vw);
+  }
 
-.glitch--bottom .sys-rec {
-	transform: translate(-1vw, -1vw);
-}
+  .sys-rec {
+    box-shadow: 0 0 2px $blue,
+    inset
+    0 0 2px $blue;
+    padding: 3rem;
+    border: 1px dashed rgba($blue-light, 0.15);
+    background: linear-gradient(45deg, rgba($blue-light, 0.2), rgba($purple-light, 0.2));
+    grid-row: 2/2;
+    grid-column: 2/2;
+  }
 
-.sys-rec {
-	box-shadow: 0 0 2px $primary,
-							 inset
-							 0 0 2px $primary;
-	padding: 3rem;
-	border: 0.2vw solid $primary;
-	grid-row: 2/2;
-	grid-column: 2/2;
-}
+  .hidden {
+    display: none;
+  }
 
-.loading-bar--unloaded {
-	color: $white;
 }
-
-.hidden {
-	display: none;
-}
-
 
 @media (min-width: 300px) and (max-width: 767px) {
-
   body {
     height: 100vh !important;
   }
+}
+
+@keyframes move {
+  0%   { transform: scale(1)   translate(0, 0) rotate(0); fill: var(--firstColor); filter: drop-shadow( 20px 14px 10px var(--dropShadowColor)); }
+  25%  { transform: scale(0.8) translate(5vw, 10vh) rotate(55deg); fill: var(--secondColor); filter: drop-shadow( 14px 14px 6px var(--dropShadowColor)); }
+  50%  { transform: scale(0.6) translate(15vw, 5vh) rotate(180deg); fill: var(--thirdColor); filter: drop-shadow( -16px -16px 16px var(--dropShadowColor)); }
+  75%  { transform: scale(0.8) translate(5vw, 10vh) rotate(55deg); fill: var(--fourthColor); filter: drop-shadow( 14px 14px 6px var(--dropShadowColor)); }
+  100% { transform: scale(1)   translate(0, 0) rotate(0); fill: var(--firstColor); filter: drop-shadow( 20px 14px 10px var(--dropShadowColor)); }
 }
