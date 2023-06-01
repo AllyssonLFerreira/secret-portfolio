@@ -1,26 +1,30 @@
-<ng-container>
-  <section>
-    
-    <div class="terminal glitch">
-      <app-scanline />
-      <div class="hydra">
-        <div class="hydra_rebooting">
-          <p class="mat-subtitle-1">&lt; SYSTEM REBOOTING &gt;</p>
-          <p class="text--sm mat-subtitle-1">SECRET PORTFOLIO VER 2.1 SYS RECOVERY</p>
-          <p class="text--sm mat-subtitle-1">PROCESS: 
-                  <span class="process-amount">0</span>
-                  %
-            </p>
-          <p class="loading-bar"></p>
-        </div>
-        <div class="hydra_reboot_success hidden">
-          <p>REBOOTING SUCCESSFUL</p>
+<app-scanner class="scanline" />
+<section class="mat-subtitle-1">
+  
+  <div class="terminal glitch">
+    <div class="sys-rec">
+      <div class="sys-rec_rebooting">
+        <p>&lt; SYSTEM REBOOTING &gt;</p>
+        <p>SECRET PORTFOLIO</p>
+        <p> VER 2.1 SYS RECOVERY </p>
+        <p class=" ">
+            PROCESS:
+            <span class="process-amount">0</span>
+            %
+        </p>
+        <p class="loading-bar"></p>
+      </div>
+
+      <div class="sys-rec_reboot_success hidden">
+        <p class="mat-headline-3">REBOOTING SUCCESSFUL</p>
+        <div class="btn-container">
           <app-cyber-button text="Initialize"
-                              path="home"
-                              />
+                             path="secret"
+                             />
         </div>
       </div>
-    </div>
 
-  </section>
-</ng-container>
+    </div>
+  </div>
+</section>
+

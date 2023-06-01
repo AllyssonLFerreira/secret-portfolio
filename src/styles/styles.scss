@@ -1,13 +1,50 @@
 *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 1px;
+  letter-spacing: 1px;
 }
 
-html {
+html, body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -font-smoothing: antialiased;
+  max-height: 100vh;
 }
 
+body {
+  display: flex;
+  padding: 6rem;
+}
+
+main {
+  place-self: center;
+  max-width: 1600px;
+  max-height: 1080px;
+}
+
+a, i { cursor: pointer;}
+
 .caption { text-transform: uppercase; }
+
+.fixed-left {
+  position: fixed;
+  left: 1%;
+  top: 2%;
+}
+
+.mat-headline-4{
+  margin: 0 0 2rem 0 !important;
+}
+
+.scanline{
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}

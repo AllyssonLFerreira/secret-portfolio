@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component,OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
-  
+
   terminal!: HTMLElement | null;
-  hydra!: HTMLElement | null;
+  sysRec!: HTMLElement | null;
   rebootSuccessText!: HTMLElement | null;
   maxCharacters!: number;
   unloadedCharacter!: string;
@@ -20,13 +20,13 @@ export class LoadingComponent implements OnInit {
   loadingPercent!: number;
   hasAnimationPlayed: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.terminal = document.querySelector(".terminal");
-    this.hydra = document.querySelector(".hydra");
-    this.rebootSuccessText = document.querySelector(".hydra_reboot_success");
-    this.maxCharacters = 24;
+    this.sysRec = document.querySelector(".sys-rec");
+    this.rebootSuccessText = document.querySelector(".sys-rec_reboot_success");
+    this.maxCharacters = 18;
     this.unloadedCharacter = ".";
     this.loadedCharacter = "#";
 
@@ -46,10 +46,10 @@ export class LoadingComponent implements OnInit {
     // Get all the loading bars
     this.loadingBars = document.querySelectorAll(".loading-bar");
     this.processAmounts = document.querySelectorAll(".process-amount");
-    this.rebootingText = document.querySelectorAll(".hydra_rebooting");
+    this.rebootingText = document.querySelectorAll(".sys-rec_rebooting");
     this.glitches = document.querySelectorAll(".glitch--clone");
-    
-    this.playHydra();
+
+    this.playSysRec();
 
   }
 
@@ -102,31 +102,31 @@ export class LoadingComponent implements OnInit {
   }
 
   private AnimateBox() {
-    const first = this.hydra!.getBoundingClientRect();
+    const first = this.sysRec!.getBoundingClientRect();
     this.HideAll([ this.glitches, this.rebootingText]);
     this.rebootSuccessText!.classList.remove("hidden");
     this.rebootSuccessText!.style.visibility = "hidden";
-    const last = this.hydra!.getBoundingClientRect();
-  
-    const hydraAnimation = this.hydra!.animate(
+    const last = this.sysRec!.getBoundingClientRect();
+
+    const sysRecAnimation = this.sysRec!.animate(
       [
         { transform: `scale(${first.width / last.width}, ${first.height / last.height})` },
         { transform: `scale(${first.width / last.width}, 1.2)` },
         { transform: "none" }
       ],
       {
-        duration: 1500,
+        duration: 1700,
         easing: "cubic-bezier(0,0,0.32,1)"
       }
     );
-  
-    hydraAnimation.addEventListener("finish", () => {
+
+    sysRecAnimation.addEventListener("finish", () => {
       this.rebootSuccessText!.removeAttribute("style");
-      this.hydra!.removeAttribute("style");
+      this.sysRec!.removeAttribute("style");
     });
   }
 
-  playHydra() {
+  playSysRec(): any {
     if (this.hasAnimationPlayed) {
       return;
     }
@@ -134,7 +134,7 @@ export class LoadingComponent implements OnInit {
     this.rebootSuccessText!.classList.add("hidden");
     this.ShowAll([ this.glitches, this.rebootingText]);
     const loadingBar = new Array(this.maxCharacters).fill(this.unloadedCharacter);
-  
+
     // Play the loading bar
     this.DrawLoadingBar(loadingBar)
       .then(() => {
@@ -143,9 +143,9 @@ export class LoadingComponent implements OnInit {
           this.terminal!.classList.remove("glitch");
           this.terminal!.classList.remove('scanline');
           this.AnimateBox();
-          setTimeout(() =>{ 
+          setTimeout(() =>{
             this.hasAnimationPlayed = true;
-          }, 5000 );
+          }, 7000 );
         });
       });
   }

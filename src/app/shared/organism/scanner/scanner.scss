@@ -1,0 +1,64 @@
+@use "node_modules/@angular/material/index" as mat;
+@use 'src/styles/color-palette';
+
+$blue-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A200));
+$blue-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A700));
+
+.scanner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  color: rgba($blue-light, 0.25);
+
+		table {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+
+		td {
+			border: 1px dashed rgba($blue-light, 0.15);
+      min-width: 10rem;
+			position: relative;
+			cursor: pointer;
+			transition: background-color 150ms ease-in-out;
+
+			&:hover {
+				background-color: rgba($blue-light, 0.035);
+			}
+
+			&.active {
+				background-color: rgba($blue-light, 0.075);
+			}
+
+			&.dot:after {
+				content: "•";
+				position: absolute;
+				top: -9.55px;
+				left: -3.8px;
+				font-size: 18px;
+				color: rgba($blue-light, 0.35);
+			}
+
+	}
+}
+
+#scanline {
+		position: absolute;
+		top: -250px;
+		width: 100%;
+		height: 200px;
+		pointer-events: none;
+		background: linear-gradient(to bottom,
+			rgba($blue-bold, 0.05) 15%,
+			rgba($blue-bold, 0.025) 35%,
+			rgba($blue-bold, 0.1) 95%,
+			rgba($blue-bold, 0.25) 96%,
+			rgba($blue-bold, 0.15) 98%,
+			rgba($blue-bold, 0.05));
+
+	&.run {
+		animation: scanline 1.1s linear;
+	}
+}

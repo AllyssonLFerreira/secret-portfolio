@@ -1,29 +1,32 @@
 @use "node_modules/@angular/material/index" as mat;
 @use 'src/styles/color-palette';
-@use "sass:map";
 
-$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark));
+$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark,900));
 $accent: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
+$accent-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
+$accent-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A700));
+$primary-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A400));
+$primary-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-primary, A700));
 
-section {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.scan-container {
+  width: 100vw;
+  height: 50vh
 }
 
 // Scene
 .scene {
-  position: relative;
+  position: absolute;
+  z-index: -100;
+  top: 0;
+  left: 0;
   overflow: hidden;
   display: block;
   height: 100%;
+  width: 100%;
 }
 
 .scene__frame {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,7 +34,7 @@ section {
 }
 
 .scene__cover {
-  position: absolute;
+  position: fixed;
   bottom: -1%;
   left: -50%;
   width: 200%;
@@ -40,10 +43,10 @@ section {
 
 // Scene Enhanced
 $scene-scale: 4;
-$grid-colour: $accent;
+$grid-colour: $accent-light;
 
 .scene__perspective {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: (-((440% - 100) / 2));
   width: calc(440% / $scene-scale);
@@ -51,7 +54,7 @@ $grid-colour: $accent;
   perspective: calc(20vh / $scene-scale);
   perspective-origin: 50% 50%;
   transform: scaleX($scene-scale) scaleY($scene-scale);
-  transform-origin: 0% 100%;
+  transform-origin: 0 100%;
 }
 
 .scene__grid {
@@ -80,54 +83,28 @@ $grid-colour: $accent;
 .scene__grid-x {
   background-image: linear-gradient(
       to left,
-      rgba($grid-colour, 0.2) 2px,
-      transparent 2px
+      rgba($grid-colour, 0.2) 1px,
+      transparent 1px
   );
 }
 
 .scene__grid-y {
   background-image: linear-gradient(
       to top,
-      rgba($grid-colour, 0.2) 1px,
-      transparent 1px
+      rgba($grid-colour, 0.2) 2px,
+      transparent 2px
   );
 }
 
 .scene__cover--frame {
   background: linear-gradient(
       180deg,
-      rgba($black, 0.5) 0%,
-      rgba($accent, 1) 25%,
       rgba($black, 0.1) 50%,
-      rgba($black, 1) 100%
+      rgba($primary-light, 0.4) 100%
   );
-}
-
-.scene__cover--scene {
-  z-index: 10;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(
-      to top,
-      rgba($black, 1) 1px,
-      transparent 1px
-  );
-  background-position: 50% 50%;
-  background-repeat: repeat;
-  background-size: 100% 2px;
 }
 
 @supports (will-change: transform) {
-  .scene__frame {
-    opacity: 0;
-    will-change: opacity, transform;
-    animation-duration: 3600ms;
-    animation-iteration-count: 1;
-    animation-name: fade-in;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-  }
-
   .scene__perspective {
     perspective-origin: 50% 100%;
     will-change: perspective-origin;
@@ -146,5 +123,4 @@ $grid-colour: $accent;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
   }
-
 }

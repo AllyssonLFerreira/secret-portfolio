@@ -1,21 +1,25 @@
 <ng-container *ngIf="path; else withoutRouter">
-  <div class="center-center" (click)="navigateBy(path)">
-    <a class="btn-glitch-fill" >
-      <span class="text">// {{text}}</span>
-      <span class="text-decoration">_</span>
-      <span class="decoration">&rArr;</span>
-    </a>
-  </div>
+  <section (click)="navigateBy(path)">
+    <div class="glitch-effect">
+      <a>
+        <span class="mat-body-1 caption">// {{text}}</span>
+        <span class="underline-decoration">_</span>
+        <span class="arrow-decoration">&rArr;</span>
+      </a>
+    </div>
+  </section>
 </ng-container>
 
 <ng-template #withoutRouter>
-  <div class="center-center" routerLink="{router}">
-    <a class="btn-glitch-fill" >
-      <span class="text">// {{text}}</span>
-      <span class="text-decoration">_</span>
-      <span class="decoration">&rArr;</span>
-    </a>
-  </div>
+  <section>
+    <div class="glitch-effect">
+      <a>
+        <span class="mat-body-1 caption">// {{text}}</span>
+        <span class="underline-decoration">_</span>
+        <span class="arrow-decoration">&rArr;</span>
+      </a>
+    </div>
+</section>
 </ng-template>
 
 

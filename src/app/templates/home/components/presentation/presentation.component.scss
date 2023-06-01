@@ -1,0 +1,70 @@
+section {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 25%;
+  width: 50%;
+  max-height: 46rem;
+  overflow-y: auto !important;
+  .text-section {
+    display: flex;
+    max-width: 45%;
+    flex-direction: column;
+  }
+  .presentation-table {
+    max-width: 60%;
+    max-height: 29.25rem;
+    margin-bottom: 2rem;
+  }
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  bottom: 1.75rem;
+  right: 0.5px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0.5rem;
+    
+  }
+}
+
+@media (min-width: 858px) and (max-width: 1364px) {
+  section {
+    left: 15%;
+    width: 75%;
+  }
+}
+@media (min-width: 706px) and (max-width: 857px) {
+  section {
+    width: 90%;
+    left: 5%;
+    max-height: 65%;
+  }
+}
+@media (min-width: 355px) and (max-width: 705px) {
+  section {
+    width: 90%;
+    max-height: 75vh;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .text-section {
+      max-width: 90%;
+    }
+    .typewriter {
+      max-height: 36rem;
+    }
+    .presentation-table {
+      align-self: end;
+      max-width: 18rem;
+      max-height: 29.25rem;
+    }
+  }
+}

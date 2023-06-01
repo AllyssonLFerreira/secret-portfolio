@@ -1,0 +1,32 @@
+<ng-container *ngIf="state$ | async as content">
+  <section>
+    <div class="row-alignment">
+      <div class="box-style introduction">
+        <h2 class="mat-headline-4 caption">//skills_&rArr;</h2>
+        <div class="typewriter">
+          <p class="mat-body-2" *ngFor="let data of content.skills.textBox">
+            _&rArr; {{data.text}}
+          </p>
+        </div>
+      </div>
+
+      <div class="tables-container">
+        <ng-container *ngFor="let tables of content.skills.table">
+            <app-table class="tables-width"
+                      title="{{tables.title}}"
+                      [tableDataWithProgress]="tables.tr" />
+        </ng-container>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <app-cyber-button text="_return"
+                          path="secret"/>
+
+        <app-cyber-button text="_works"
+                          path="secret/works"/>
+      </ul>
+    </nav>
+  </section>
+</ng-container>

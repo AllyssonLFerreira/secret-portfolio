@@ -1,0 +1,29 @@
+<ng-container *ngIf="state$ | async as content">
+
+  <section class="box-style">
+
+    <div class="text-section">
+      <h1 class="mat-headline-4 caption">//target_ briefing_&rArr;</h1>
+      <div class="typewriter">
+        <p *ngFor="let data of content.presentation.textBox" class="mat-body-2"> &rArr; {{data.text}} </p>
+      </div>
+    </div>
+
+    <ng-container *ngFor="let table of content.presentation.table">
+      <div class="presentation-table">
+        <app-table  img="{{table.img}}"
+                    [tableData]="table.tr"/>
+      </div>
+    </ng-container>
+  </section>
+
+  <nav>
+    <ul>
+      <app-cyber-button text="Download _CV"
+                         (click)="downloadPDF()"/>
+
+      <app-cyber-button text="_SKILLS"
+                          routerLink="skills"/>
+    </ul>
+  </nav>
+</ng-container>

@@ -1,0 +1,72 @@
+@use "node_modules/@angular/material/index" as mat;
+@use 'src/styles/color-palette';
+
+$black: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-dark, 900));
+$purple-light: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-accent, A200));
+$red: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-warn, A700));
+$white: mat.get-color-from-palette(mat.define-palette(color-palette.$custom-white));
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .terminal {
+    position: relative;
+    padding: 1rem;
+    background: $black;
+  }
+  .msg {
+    background: $red;
+    padding: 2rem;
+    box-shadow: 0 0 30px $red;
+    text-shadow: 0 0 20px $white;
+    color: $white;
+    position: fixed;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+    animation-name: blink;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+  }
+  #console {
+    position: relative;
+    width: auto;
+    p {
+      color: $purple-light;
+      text-shadow: 0 0 10px $purple-light;
+    }
+  }
+  .button-container {
+    display: flex;
+    margin: 0.5rem 0 0 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 355px) and (max-width:768px) {
+  section {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+  }
+
+  .terminal {
+    max-width: 20rem;
+  }
+}
+
+:host::ng-deep.mat-headline-4{
+  margin: 0 0 2rem 0;
+}

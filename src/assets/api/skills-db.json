@@ -1,0 +1,47 @@
+{
+  "skills": {
+    "textBox": [
+      {"text": "He excels at creating highly effective responsive websites that are characterized by their speed, user-friendly interfaces, and adherence to best practices."},
+      {"text": "His primary expertise lies in front-end development, specializing in Angular to craft web applications of various sizes and complexity"},
+      {"text": "His current focus centers around advancing his skills in 3D game development, diligently staying updated with the latest technologies and industry practices. His mastery of HTML and CSS is highly advanced."},
+      {"text": "Additionally, he possesses backend knowledge in sophisticated languages such as Java and C#, as well as expertise in frameworks like Node.js."}
+    ],
+    "table": [
+      {
+        "title": "LANGUAGES",
+        "tr": [
+          {"description": "Javascript", "value": 85},
+          {"description": "Typescript", "value": 85},
+          {"description": "HTML", "value": 100},
+          {"description": "CSS", "value": 100},
+          {"description": "Java", "value": 35},
+          {"description": "C# & C++", "value": 50},
+          {"description": "SQL", "value": 50}
+        ]
+      },
+      {
+        "title": "FRAMEWORKS",
+        "tr": [
+          {"description": "Angular", "value": 100},
+          {"description": "React", "value": 65},
+          {"description": "NgRx / Redux", "value": 75},
+          {"description": "Tailwind", "value": 100},
+          {"description": "Material UI", "value": 75},
+          {"description": "Unity", "value": 50},
+          {"description": "Node.JS", "value": 75}
+        ]
+      },
+      {
+        "title": "SKILLSET",
+        "tr": [
+          {"description": "GIT", "value": 100},
+          {"description": "Rel / Non-rel databases", "value": 65},
+          {"description": "API creation / integration", "value": 100},
+          {"description": "Single pages APPS", "value": 100},
+          {"description": "Micro-Services", "value": 100},
+          {"description": "Procedura / Functional / OOP", "value": 85}
+        ]
+      }
+    ]
+  }
+}

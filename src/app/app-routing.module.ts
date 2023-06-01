@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoadingComponent } from './shared/organism/loading/loading.component';
+import { RetrowaveBackgroundComponent } from "./shared/atoms/retrowave-background/retrowave-background.component";
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('src/app/home/home.module').then(m => m.HomeModule)
+    path: 'secret',
+    loadChildren: () => import('src/app/templates/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'reboot',

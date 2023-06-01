@@ -1,0 +1,42 @@
+{
+  "presentation":{
+    "textBox": [
+      {"text": "His name is Allysson Ferreira, a fullstack developer based in Brazil."},
+      {"text": "He is highly skilled at creating user interface effects and delivering intuitive and dynamic user experiences."},
+      {"text": "Your target has worked on a wide range of projects, both large and small, using technologies such as Java, Node.js, Typescript, Angular, and React."},
+      {"text": "Interested in all stages of software development, he also has a strong passion for gaming, dedicating a significant portion of his personal studies to this field."}
+    ],
+    "table": [
+      {
+        "title": "target data",
+        "img": "/assets/img/presentation.jpeg",
+        "tr": [
+          {
+            "description": "TARGET",
+            "value": "Allysson Lima Ferreira"
+          },
+          {
+            "description": "PROFESSION",
+            "value": "Software Engineer"
+          },
+          {
+            "description": "LOCATION",
+            "value": "Brazil, RS"
+          },
+          {
+            "description": "AGE",
+            "value": "27"
+          },
+          {
+            "description": "SEX",
+            "value": "Male"
+          },
+          {
+            "description": "CHILDREN",
+            "value": "Two Cats"
+          }
+        ]
+      }
+    ]
+  }
+}
