@@ -9,7 +9,7 @@ import {Flow} from "../../../../integration/model/Flow.model";
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit, AfterViewInit, OnInit, OnDestroy {
+export class SkillsComponent implements OnInit, OnDestroy {
 
   subs!: Subscription;
   state$: Observable<Flow | undefined>
@@ -24,30 +24,5 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnInit, OnDestroy
 
   ngOnDestroy(): void {
     this.subs.unsubscribe()
-  }
-
-  ngAfterViewInit(): void {
-    /*const typewriterElements = document.querySelectorAll('.typewriter');
-    console.log(typewriterElements)
-    const typewriterArray = Array.from(typewriterElements) as HTMLElement[];
-
-    for (const elm of typewriterArray) {
-      const text = elm.innerText;
-
-      // clear text
-      elm.innerText = '';
-
-      let i = 0;
-
-      const t = setInterval(() => {
-        elm.innerText = text.substr(0, i);
-
-        i++;
-
-        if (i > text.length) {
-          clearInterval(t);
-        }
-      }, 20);
-    }*/
   }
 }

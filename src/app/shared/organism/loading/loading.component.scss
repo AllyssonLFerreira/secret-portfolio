@@ -65,6 +65,10 @@ section {
     display: none;
   }
 
+  .btn-container {
+    max-width: 12.5rem;
+  }
+
 }
 
 @media (min-width: 300px) and (max-width: 767px) {

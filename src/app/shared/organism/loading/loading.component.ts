@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
@@ -19,13 +20,13 @@ export class LoadingComponent implements OnInit {
   loadingPercent!: number;
   hasAnimationPlayed: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.terminal = document.querySelector(".terminal");
     this.sysRec = document.querySelector(".sys-rec");
     this.rebootSuccessText = document.querySelector(".sys-rec_reboot_success");
-    this.maxCharacters = 24;
+    this.maxCharacters = 18;
     this.unloadedCharacter = ".";
     this.loadedCharacter = "#";
 
@@ -144,7 +145,7 @@ export class LoadingComponent implements OnInit {
           this.AnimateBox();
           setTimeout(() =>{
             this.hasAnimationPlayed = true;
-          }, 5000 );
+          }, 7000 );
         });
       });
   }

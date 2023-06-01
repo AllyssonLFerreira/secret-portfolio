@@ -26,7 +26,7 @@ $accent-bold: mat.get-color-from-palette(mat.define-palette(color-palette.$custo
     border: 1px solid $extra-black;
   }
 
-  .mat-headline-4 {
+  .mat-headline-3, .mat-body-1 {
     margin: 0 !important;
   }
 

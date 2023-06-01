@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {interval, map, Observable, of, Subscription, take} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {Flow} from "../../../../integration/model/Flow.model";
 import {FlowStore} from "../../../../integration/store/flow.store";
 import {PresentationStore} from "../../../../integration/store/home/presentation.store";
@@ -10,12 +10,10 @@ import {PresentationStore} from "../../../../integration/store/home/presentation
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.scss']
 })
-export class PresentationComponent implements AfterViewInit, OnInit, OnDestroy {
-  @ViewChild("textElement") textElement!: ElementRef;
+export class PresentationComponent implements OnInit, OnDestroy {
 
   state$!: Observable<Flow | undefined>;
   subs!: Subscription;
-  textPresentation!: string[] | undefined;
 
   constructor( private _HTTP: HttpClient,
                private _FLOW: FlowStore,
@@ -23,25 +21,14 @@ export class PresentationComponent implements AfterViewInit, OnInit, OnDestroy {
     this.state$ = this._FLOW.getState()
   }
 
-  writeTextInTypewriterStyle(text: string): Observable<string> {
-    const typingSpeed = 50; // Velocidade da digitação (em milissegundos)
-
-    return interval(typingSpeed).pipe(
-      take(text.length),
-      map((index: number) => text.slice(0, index + 1))
-    );
-  }
-
   ngOnInit() {
     this.subs = this._PRESENTATION.fetchState()
   }
 
-  ngAfterViewInit(): void {
-
-  }
   ngOnDestroy() {
     this.subs.unsubscribe()
   }
+
   downloadPDF(): void {
     this._HTTP
       .get('assets/pdf/allysson-ferreira.pdf', {responseType: 'blob'})
