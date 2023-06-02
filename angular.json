@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cyberpunk-portofolio": {
+    "the-secret-portfolio": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cyberpunk-portofolio",
+            "outputPath": "dist/the-secret-portfolio",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "cyberpunk-portofolio:build:production"
+              "browserTarget": "the-secret-portfolio:build:production"
             },
             "development": {
-              "browserTarget": "cyberpunk-portofolio:build:development"
+              "browserTarget": "the-secret-portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cyberpunk-portofolio:build"
+            "browserTarget": "the-secret-portfolio:build"
           }
         },
         "test": {
