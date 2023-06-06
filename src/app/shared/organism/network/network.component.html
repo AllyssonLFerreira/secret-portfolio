@@ -1,0 +1,34 @@
+<!-- <section class="card">
+  <ng-container *ngFor="let socialMedia of network">
+    <a class="network" href="{{socialMedia.path}}" target="_blank">
+      <img src="{{socialMedia.src}}" alt="{{socialMedia.alt}}"/>
+      <span class="mat-body-2">&rArr; {{socialMedia.alt}}</span>
+    </a>
+  </ng-container>
+</section> -->
+
+<div class="card-group">
+  
+  <span class="side"></span>
+
+  <div class="card">
+    
+    <div class="top">
+      <span class="mat-body-2 caption">Contact Target</span>
+      <mat-icon aria-hidden="false" aria-label="Close" fontIcon="close" (click)="closeModal()"></mat-icon>
+    </div>
+
+    <div class="card-inner">
+      <ng-container *ngFor="let socialMedia of network">
+        <div class="data-banner clipped">
+          <a class="network" href="{{socialMedia.path}}" target="_blank">
+            <img src="{{socialMedia.src}}" alt="{{socialMedia.alt}}"/>
+            <span class="mat-body-2">&rArr; {{socialMedia.alt}}</span>
+          </a>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+    
+</div>

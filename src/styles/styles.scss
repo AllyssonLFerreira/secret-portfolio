@@ -24,7 +24,10 @@ main {
   max-height: 1080px;
 }
 
-a, i { cursor: pointer;}
+a, i { 
+  cursor: pointer; 
+  color: white;
+}
 
 .caption { text-transform: uppercase; }
 

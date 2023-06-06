@@ -9,6 +9,9 @@ import { TableComponent } from './organism/table/table.component';
 import { SharedDirective } from './shared.directive';
 import {ScannerComponent} from "./organism/scanner/scanner";
 import { ErrorComponent } from './organism/error/error.component';
+import { NetworkComponent } from './organism/network/network.component';
+import { CyberLinkComponent } from './atoms/cyber-link/cyber-link.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,14 @@ import { ErrorComponent } from './organism/error/error.component';
     TableComponent,
     SharedDirective,
     ScannerComponent,
-    ErrorComponent
+    ErrorComponent,
+    NetworkComponent,
+    CyberLinkComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ],
   exports: [
     RetrowaveBackgroundComponent,
@@ -32,7 +38,9 @@ import { ErrorComponent } from './organism/error/error.component';
     CyberButtonComponent,
     TableComponent,
     ScannerComponent,
-    ErrorComponent
+    ErrorComponent,
+    NetworkComponent,
+    CyberLinkComponent
   ]
 })
 export class SharedModule { }

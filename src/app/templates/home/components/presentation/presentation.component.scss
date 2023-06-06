@@ -16,6 +16,11 @@ section {
     max-height: 29.25rem;
     margin-bottom: 2rem;
   }
+
+  .link {
+    max-width: 80%;    
+    margin: 1rem 0;
+  }
 }
 
 nav {
@@ -41,7 +46,11 @@ nav {
   section {
     width: 90%;
     left: 5%;
-    max-height: 65%;
+    max-height: 75%;
+
+    .link {    
+      margin: 0.25rem 0;
+    }
   }
 }
 @media (min-width: 355px) and (max-width: 705px) {

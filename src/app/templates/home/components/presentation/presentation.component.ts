@@ -4,6 +4,8 @@ import {Observable, Subscription} from "rxjs";
 import {Flow} from "../../../../integration/model/Flow.model";
 import {FlowStore} from "../../../../integration/store/flow.store";
 import {PresentationStore} from "../../../../integration/store/home/presentation.store";
+import { MatDialog } from '@angular/material/dialog';
+import { NetworkComponent } from 'src/app/shared/organism/network/network.component';
 
 @Component({
   selector: 'app-presentation',
@@ -15,9 +17,10 @@ export class PresentationComponent implements OnInit, OnDestroy {
   state$!: Observable<Flow | undefined>;
   subs!: Subscription;
 
-  constructor( private _HTTP: HttpClient,
-               private _FLOW: FlowStore,
-               private _PRESENTATION: PresentationStore) {
+  constructor(private _HTTP: HttpClient,
+              private _MatDialog: MatDialog,
+              private _FLOW: FlowStore,
+              private _PRESENTATION: PresentationStore) {
     this.state$ = this._FLOW.getState()
   }
 
@@ -41,5 +44,14 @@ export class PresentationComponent implements OnInit, OnDestroy {
         link.click();
       })
   }
+
+  openDialog(): void {
+      this._MatDialog.open(NetworkComponent), {
+        disableClose: false,
+        height: '100%',
+        width: '100%',
+      }
+  }
+
 }
 
