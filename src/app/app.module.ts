@@ -7,10 +7,11 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import {StoreRootModule} from "./integration/store/store.root.module";
 import {StoreModule} from "@ngrx/store";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,7 @@ import {StoreModule} from "@ngrx/store";
     HttpClientModule,
     StoreModule.forRoot(),
     StoreRootModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

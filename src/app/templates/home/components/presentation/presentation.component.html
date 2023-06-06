@@ -1,12 +1,12 @@
 <ng-container *ngIf="state$ | async as content">
 
   <section class="box-style">
-
     <div class="text-section">
-      <h1 class="mat-headline-4 caption">//target_ briefing_&rArr;</h1>
+      <h1 class="mat-headline-4 caption">//target _briefing _&rArr;</h1>
       <div class="typewriter">
         <p *ngFor="let data of content.presentation.textBox" class="mat-body-2"> &rArr; {{data.text}} </p>
       </div>
+      <app-cyber-link class="link" text="Contact _Target" (click)="openDialog()"/>
     </div>
 
     <ng-container *ngFor="let table of content.presentation.table">
@@ -15,6 +15,7 @@
                     [tableData]="table.tr"/>
       </div>
     </ng-container>
+
   </section>
 
   <nav>

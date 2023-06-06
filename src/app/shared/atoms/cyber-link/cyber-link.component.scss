@@ -16,8 +16,7 @@ section {
 
 .glitch-effect {
   color: $white;
-  border: 1px solid;
-  padding: 0.6rem 0.81rem;
+  padding: 0 0.81rem;
   line-height: 1.5em;
   max-width: 16.5rem;
   min-width: 9.5rem;
@@ -25,7 +24,6 @@ section {
   &:focus {
     background-color: transparent;
     color: $blue;
-    border: 1px solid $blue;
     .underline-decoration {
       animation: blink-btn 0.1s infinite;
     }
@@ -35,7 +33,7 @@ section {
     :before {
       content: " ";
       width: 0.93rem;
-      border: 1px solid $blue;
+      border-bottom: 1px solid $blue;
       left: 50%;
       position: absolute;
       bottom: 2%;
@@ -44,7 +42,7 @@ section {
     :after {
       content: " ";
       width: 75%;
-      border: 1px solid $blue;
+      border-bottom: 1px solid $blue;
       position: absolute;
       left: 0;
       bottom: 2%;
@@ -52,9 +50,7 @@ section {
     }
   }
   &:active {
-    background: $black;
     color:$purple-light;
-    animation: color-glitch .1s ease-in-out;
     .underline-decoration {
       animation-name: none;
     }
@@ -70,28 +66,4 @@ section {
 .underline-decoration,
 .arrow-decoration {
   display: inline-block;
-}
-
-@keyframes color-glitch {
-  25% {
-    color: $red;
-    transform: translateX(-10px);
-    letter-spacing: 10px;
-  }
-  35% {
-    color: $purple-light;
-    transform: translate(10px);
-  }
-  59% {
-    opacity: 0;
-  }
-  60% {
-    color: $blue;
-    transform: translate(-10px);
-    filter: blur(5px);
-  }
-  100% {
-    color: $purple-light;
-    blur: (5px);
-  }
 }
